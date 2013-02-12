@@ -7,9 +7,6 @@ require 'json'
 require 'etc'
 require 'timeout'
 
-WATCHERS = host_watchers
-INTERVAL = ENV["BOARDY_INTERVAL"].to_i rescue 5
-
 class HostWatcher
   attr_reader :statuses
 
@@ -48,6 +45,10 @@ if host_watchers.empty?
   puts "Add some host watchers by setting BOARDYHOSTS=google.com,github.com"
   exit
 end
+
+WATCHERS = host_watchers
+INTERVAL = ENV["BOARDY_INTERVAL"].to_i rescue 5
+
 
 def check
   WATCHERS.each do |w|
