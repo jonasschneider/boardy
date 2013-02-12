@@ -1,1 +1,1 @@
-app: bundle exec rackup
+app: bundle exec rackup -p $PORT

@@ -1,5 +1,14 @@
 # encoding: utf-8
 require 'sinatra'
+require 'sass'
+require 'haml'
+
+require 'json'
+require 'etc'
+require 'timeout'
+
+WATCHERS = host_watchers
+INTERVAL = ENV["BOARDY_INTERVAL"].to_i rescue 5
 
 class HostWatcher
   attr_reader :statuses
@@ -40,16 +49,10 @@ if host_watchers.empty?
   exit
 end
 
-WATCHERS = host_watchers
-
-require 'json'
-require 'etc'
-require 'timeout'
-
 def check
   WATCHERS.each do |w|
     s = begin
-      Timeout::timeout(5) {
+      Timeout::timeout(INTERVAL) {
         w.check
       }
     rescue Timeout::Error => e
@@ -65,12 +68,11 @@ Thread.abort_on_exception = true
 Thread.new do
   loop do
     check
-    sleep 5
+    sleep INTERVAL
   end
 end
 
-check
-
+3.times { check }
 
 get '/' do
   haml :index
