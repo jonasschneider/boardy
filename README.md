@@ -13,9 +13,9 @@ Set up hosts to watch:
 
     $ echo "BOARDYHOSTS=google.com,github.com" > .env
 
-Run it, and beware the double wrapper:
+Let [foreman](https://github.com/ddollar/foreman) run it:
 
-    $ foreman run bundle exec rackup
+    $ foreman start
 
 ## Contributing
 Fork, hack, pullreq. Extensions welcome.
