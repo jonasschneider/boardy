@@ -1,7 +1,7 @@
 # Boardy
-Boardy is a dashboard.
+Boardy is a dashboard that shows pings to hosts.
 
-![](http://puu.sh/21AQu)
+![](http://puu.sh/21Bwq)
 
 ## Installation
 Clone this repo:
