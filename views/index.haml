@@ -1,0 +1,18 @@
+
+.graphs
+  - WATCHERS.each do |w|
+    .watcher{ class: w.up? ? '' : 'down'}
+      .desc
+        %h2= w.name
+        %span.number== #{w.number}
+      .graph
+        .graph-container{ "data-unit" => "ms", "data-string" => w.statuses.map{|s| [s[0].to_f, (s[1]==:down ? 0.0 : s[1])] }.to_json }
+
+%footer
+  Running on
+  %em= `hostname`
+  as
+  %em= Etc.getlogin
+
+
+
