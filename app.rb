@@ -25,11 +25,12 @@ class HostWatcher
 
   def check
     ping_count = 1
-    response_time = `ping -c 1 #{@host} | tail -1| awk '{print $4}' | cut -d '/' -f 2`.to_f
-    if $?.exitstatus == 0
-      return response_time
+    response_time = `ping -c 1 -t 5 #{@host} 2> /dev/null | tail -1| awk '{print $4}' | cut -d '/' -f 2`.to_f
+    if $?.exitstatus == 0 && response_time > 0
+      response_time
+    else
+      :down
     end
-    :down
   end
 end
 
