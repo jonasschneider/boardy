@@ -25,9 +25,8 @@ class HostWatcher < Watcher
   end
 
   def number
-    #checks.select{|s|s[1] == :up}.length / checks.length
     x=checks.last
-    x[1].down? ? '—' : "#{x[1].ping}ms"
+    x[1].down? ? '—' : "#{x[1].ping.ceil}ms"
   end
 
   def name

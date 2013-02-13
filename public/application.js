@@ -123,7 +123,7 @@ $(function() {
   $('#graph_data').on('pjax:end', function() {
     return renderGraphs();
   });
-  $(".sparkline").peity("line", {colour: '#ddd', strokeColour: '#777'})
+  $(".sparkline").peity("line", {colour: '#ddd', strokeColour: '#aaa'})
   return $(window).on('orientationchange', function() {
     return renderGraphs();
   });
