@@ -76,7 +76,6 @@ $(function() {
       gradient.append("svg:stop").attr("offset", 100 * y(transition) / h + '%').attr("stop-color", "#F29D50").attr("stop-opacity", 1);
       gradient.append("svg:stop").attr("offset", 100 * y(bad_at) / h + '%').attr("stop-color", "#c00").attr("stop-opacity", 1);
     }
-    vis.append("g").attr("class", "x axis").attr('transform', "translate(0, " + (h - padt - padb) + ")").call(xAxis);
     area = d3.svg.area().x(function(d) {
       return x(d[0]);
     }).y0(function(d) {
@@ -89,7 +88,10 @@ $(function() {
     }).y(function(d) {
       return y(d[1]);
     }).interpolate('basis');
+
     yax = vis.append("g").attr("transform", "translate(" + w + ", 0)").attr("class", "y axis");
+    vis.append("g").attr("class", "x axis").attr('transform', "translate(0, " + (h - padt - padb) + ")").call(xAxis);
+
     yax.call(yAxis).selectAll('.y.axis g').classed('zero', function(d, i) {
       return d === 0;
     }).classed('add', function(d, i) {
@@ -121,6 +123,7 @@ $(function() {
   $('#graph_data').on('pjax:end', function() {
     return renderGraphs();
   });
+  $(".sparkline").peity("line", {colour: '#ddd', strokeColour: '#777'})
   return $(window).on('orientationchange', function() {
     return renderGraphs();
   });

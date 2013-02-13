@@ -4,8 +4,16 @@
       .desc
         %h2= w.name
         %span.number== #{w.number}
+        - unless w.sparklines.empty?
+          .sparklines
+            - w.sparklines.each do |l|
+              %span.sparkline-title
+                = l[0]
+                %strong= l[1].last
+              %span.sparkline= l[1].join(",")
+
       .graph
-        .graph-container{ "data-unit" => "ms", "data-string" => w.statuses.map{|s| [s[0].to_f, (s[1]==:down ? 0.0 : s[1])] }.to_json }
+        .graph-container{ "data-unit" => "ms", "data-string" => w.checks.map{|s| [s[0].to_f, (s[1]==:down ? 0.0 : s[1].main_num.to_f)] }.to_json }
 
 %footer
   Running on

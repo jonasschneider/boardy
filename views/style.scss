@@ -20,6 +20,7 @@ footer {
   display: table;
   width: 100%;
   margin-top: 50px;
+  border-spacing: 0 10px;
 }
 
 $down:  rgba(255, 116, 47, 0.85);
@@ -34,9 +35,11 @@ $down:  rgba(255, 116, 47, 0.85);
 
     > * {
       -webkit-box-shadow: 0 5px 5px -5px rgba(0,0,0,0.4) inset;
+      padding: 30px;
     }
     > *:first-child {
       -webkit-box-shadow: 5px 5px 5px -5px rgba(0,0,0,0.4) inset;
+      padding: 30px;
     }
 
     .desc h2, .desc .number {
@@ -56,7 +59,7 @@ $down:  rgba(255, 116, 47, 0.85);
   .desc {
     display: table-cell;
     vertical-align: top;
-    padding: 30px;
+    padding: 10px;
 
     h2 {
       margin: 0 0 6px;
@@ -84,9 +87,54 @@ $down:  rgba(255, 116, 47, 0.85);
   }
 }
 
+.sparklines {
+  margin-top: 10px;
+}
+
+.sparkline-title {
+  text-transform: uppercase;
+  color: #bbb;
+  position: relative;
+  top:-3px;
+  font-family: "Helvetica Neue";
+  font-weight: light;
+  font-size: 50%;
+
+  padding-left: 20px;
+  padding-right: 5px;
+
+  strong {
+    color: #888;
+    //font-weight: normal;
+  }
+}
+
+.sparkline {
+  width: 70px;
+  height:30px;
+  display: inline-block;
+
+  .axis line, .axis path {
+    stroke-width: hairline;
+    fill: none;
+    stroke: #eee;
+  }
+  .axis {
+    fill: #ccc;
+    font-size: 10px;
+  }
+
+  path.path {
+    stroke: #777;
+    stroke-width: 1px;
+    stroke-opacity: 1;
+    fill: none;
+  }
+}
 
 
-.graph-container {
+
+.graph .graph-container {
   height: 80px;
 }
 

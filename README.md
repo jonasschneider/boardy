@@ -4,9 +4,10 @@ Boardy is a dashboard that shows pings to hosts.
 ![](http://puu.sh/21Bwq)
 
 ## Installation
-Clone this repo:
+Clone this repo, and install dependencies:
 
     $ git://github.com/jonasschneider/boardy.git
+    $ brew install coreutils
     $ bundle install
 
 Set up hosts to watch:
