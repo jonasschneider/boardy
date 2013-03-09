@@ -24,7 +24,7 @@ Dir['./watchers/*.rb'].each { |f| require f }
 
 host_watchers = (ENV["BOARDY_HOSTS"]||"").split(",").map {|h| HostWatcher.new(h) }
 if host_watchers.empty?
-  puts "Add some host watchers by setting BOARDYHOSTS=google.com,github.com"
+  puts "Add some host watchers by setting BOARDY_HOSTS=google.com,github.com"
   exit
 end
 
