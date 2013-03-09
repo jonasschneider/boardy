@@ -12,7 +12,7 @@ Clone this repo, and install dependencies:
 
 Set up hosts to watch:
 
-    $ echo "BOARDYHOSTS=google.com,github.com" > .env
+    $ echo "BOARDY_HOSTS=google.com,github.com" > .env
 
 Let [foreman](https://github.com/ddollar/foreman) run it:
 
